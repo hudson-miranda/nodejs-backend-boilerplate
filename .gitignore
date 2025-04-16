@@ -23,6 +23,7 @@ Thumbs.db
 # Docker
 *.local
 docker-compose.override.yml
+docker-compose.yml
 
 # Testes
 coverage/
