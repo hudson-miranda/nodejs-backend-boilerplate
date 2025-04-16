@@ -35,7 +35,7 @@ git clone https://github.com/hudson-miranda/nodejs-backend-boilerplate.git nome-
 cd nome-do-seu-projeto
 ```
 
-3. Configure o `.env`e/ou `docker-compose.yml` conforme orientado abaixo.
+3. Configure o `.env` e/ou `docker-compose.yml` conforme orientado abaixo.
 
 ### ⚙️ .env
 
