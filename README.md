@@ -26,7 +26,7 @@ Este projeto é um boilerplate backend moderno e escalável utilizando Node.js, 
 
 ## ⚙️ .env
 
-**Copie o .env.example para .env ou crie um novo arquivo com as configurações abaixo:**
+Copie o `.env.example` para `.env` ou crie um novo arquivo com as configurações abaixo:
 
 ```bash
 PORT=3000
@@ -49,7 +49,7 @@ REDIS_PORT=6379
 
 ## 🐋 docker-compose.yml
 
-**Crie um novo arquivo `docker-compose.yml` com as configurações abaixo:**
+Crie um novo arquivo `docker-compose.yml` com as configurações abaixo:
 
 ```bash
 version: '3.8'
