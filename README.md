@@ -1,45 +1,63 @@
 # 🚀 Node.js Boilerplate Backend
 
-Este projeto é um boilerplate backend moderno e escalável utilizando Node.js, Express, PostgreSQL, Redis e JWT, pronto para produção e deploy em Docker.
+This project is a modern and scalable backend boilerplate using Node.js, Express, PostgreSQL, Redis, and JWT, ready for production and Docker deployment.
+
+
+## 🧰 Technologies Used
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=flat&logo=sequelize&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=flat&logo=jsonwebtokens&logoColor=white)
+![Joi](https://img.shields.io/badge/Joi-2D9CDB?style=flat)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=flat&logo=jest&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=swagger&logoColor=black)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Passport](https://img.shields.io/badge/Passport.js-34E27A?style=flat)
+![Winston](https://img.shields.io/badge/Winston-4C4C4C?style=flat)
+![Morgan](https://img.shields.io/badge/Morgan-00758F?style=flat)
+
 
 ## ✅ Features
 
-- 🧑‍💼 CRUD completo de usuários
-- 🔐 Autenticação com JWT
-- 👮‍♂️ Controle de acesso com RBAC (admin/user)
-- 🐘 Banco de dados PostgreSQL (via Sequelize)
-- ⚡ Cache com Redis
-- 🧪 Testes com Jest + Supertest
-- 📑 Documentação Swagger 3.0 (OpenAPI)
-- 📦 Docker e Docker Compose
-- 🧰 Logging com Winston e Morgan
-- 🔎 Validação com Joi
-- 📁 Estrutura modular pronta para escalar
-- 🔄 API versionada: `/api/v1`
+- 🧑‍💼 Full CRUD for users
+- 🔐 Authentication with JWT
+- 👮‍♂️ Role-based access control (RBAC: admin/user)
+- 🐘 PostgreSQL database (via Sequelize)
+- ⚡ Redis caching
+- 🧪 Testing with Jest + Supertest
+- 📑 Swagger 3.0 (OpenAPI) documentation
+- 📦 Docker and Docker Compose
+- 🧰 Logging with Winston and Morgan
+- 🔎 Validation with Joi
+- 📁 Modular structure ready to scale
+- 🔄 Versioned API: `/api/v1`
 
-## 🚀 Como iniciar o projeto
+## 🚀 Getting Started
 
-### Pré-requisitos
+### Prerequisites
 
 - [Node.js v18+](https://nodejs.org/)
 - [Docker + Docker Compose](https://docs.docker.com/get-docker/)
 
-### Inicializando o projeto
+### Initialize the project
 
-1. Clone este repositório e altere o `nome-do-seu-projeto`:
+1. Clone this repository and rename the folder:
 ```bash
-git clone https://github.com/hudson-miranda/nodejs-backend-boilerplate.git nome-do-seu-projeto
+git clone https://github.com/hudson-miranda/nodejs-backend-boilerplate.git your-project-name
 ```
-2. Navegue até o repositório criado:
+2. Navigate to the folder:
 ```bash
-cd nome-do-seu-projeto
+cd your-project-name
 ```
 
-3. Configure o `.env` e/ou `docker-compose.yml` conforme orientado abaixo.
+3. Set up your `.env` and/or `docker-compose.yml` file as shown below.
 
 ### ⚙️ .env
 
-Copie o `.env.example` para `.env` ou crie um novo arquivo com as configurações abaixo:
+Copy `.env.example` to `.env` or create a new file with the following config:
 
 ```bash
 PORT=3000
@@ -62,7 +80,7 @@ REDIS_PORT=6379
 
 ### 🐋 docker-compose.yml
 
-Crie um novo arquivo `docker-compose.yml` com as configurações abaixo:
+Create a new `docker-compose.yml` file:
 
 ```bash
 version: '3.8'
@@ -109,78 +127,78 @@ volumes:
   postgres_data:
 ```
 
-### Executando com Docker
+### Running with Docker
 
 ```bash
 docker-compose up --build
 ```
 
-Acesse:
-API: http://localhost:3000
+Access:
+API: http://localhost:3000  
 Swagger Docs: http://localhost:3000/api-docs
 
-### Executando localmente (sem Docker)
+### Running locally (without Docker)
 
-1. Instale as dependências:
+1. Install dependencies:
 ```bash
 npm install
 ```
-2. Configure o banco PostgreSQL e Redis (use Docker ou instale localmente)
-3. Preencha o arquivo .env (já fornecido)
-4. Rode a seed inicial:
+2. Set up PostgreSQL and Redis (via Docker or locally)
+3. Fill the `.env` file (already provided)
+4. Run the initial seed:
 ```bash
 node seed.js
 ```
-5. Inicie o servidor:
+5. Start the server:
 ```bash
 npm run dev
 ```
 
-Acesse:
-API: http://localhost:3000
+Access:
+API: http://localhost:3000  
 Swagger Docs: http://localhost:3000/api-docs
 
-### 🧪 Testes
+### 🧪 Tests
 
 ```bash
 npm test
 ```
 
-## 📑 Documentação da API
+## 📑 API Documentation
 
-Disponível em: http://localhost:3000/api-docs
+Available at: http://localhost:3000/api-docs
 
-## 📌 Endpoints Disponíveis
+## 📌 Available Endpoints
 
-> Todas as rotas estão versionadas sob o prefixo `/api/v1/`  
-> Rotas protegidas exigem um token JWT no header:  
-> `Authorization: Bearer <seu_token_aqui>`
+> All routes are versioned under the `/api/v1/` prefix  
+> Protected routes require a JWT token in the header:  
+> `Authorization: Bearer <your_token_here>`
 
 #### 🔐 Auth
 
-| Método | Rota                  | Descrição                          | Protegida |
-|--------|------------------------|------------------------------------|-----------|
-| POST   | `/auth/login`         | Autentica usuário e retorna JWT    | ❌        |
-| POST   | `/auth/register`      | Registra novo usuário              | ❌        |
+| Method | Route               | Description                       | Protected |
+|--------|---------------------|-----------------------------------|-----------|
+| POST   | `/auth/login`       | Authenticate and get JWT token    | ❌        |
+| POST   | `/auth/register`    | Register a new user               | ❌        |
 
-#### 👤 Usuários
+#### 👤 Users
 
-| Método | Rota                    | Descrição                                | Protegida | Role Requerida |
-|--------|-------------------------|------------------------------------------|-----------|----------------|
-| GET    | `/users`               | Lista todos os usuários                   | ✅        | qualquer       |
-| GET    | `/users/:id`           | Retorna um usuário pelo ID                | ✅        | qualquer       |
-| POST   | `/users`               | Cria um novo usuário                      | ✅        | `admin`        |
-| PUT    | `/users/:id`           | Atualiza um usuário                       | ✅        | qualquer       |
-| DELETE | `/users/:id`           | Realiza soft delete do usuário            | ✅        | `admin`        |
+| Method | Route               | Description                             | Protected | Role Required |
+|--------|---------------------|-----------------------------------------|-----------|----------------|
+| GET    | `/users`            | Get all users                           | ✅        | any            |
+| GET    | `/users/:id`        | Get user by ID                          | ✅        | any            |
+| POST   | `/users`            | Create a new user                       | ✅        | `admin`        |
+| PUT    | `/users/:id`        | Update a user                           | ✅        | any            |
+| DELETE | `/users/:id`        | Soft delete a user                      | ✅        | `admin`        |
 
-📢 *Todas as rotas protegidas devem conter o token no header:*  
+📢 *All protected routes must include token in header:*  
 ```http
 Authorization: Bearer <token>
 ```
 
-### 📌 Exemplos de requisição
+### 📌 Request Examples
 
-🔑 *Login*
+🔑 *Login*  
 `POST /api/v1/auth/login`
 ```json
 {
@@ -189,7 +207,7 @@ Authorization: Bearer <token>
 }
 ```
 
-📝 *Registro*
+📝 *Register*  
 `POST /api/v1/auth/register`
 ```json
 {
@@ -200,56 +218,56 @@ Authorization: Bearer <token>
 }
 ```
 
-## 📬 Coleção Postman
+## 📬 Postman Collection
 
-Para facilitar os testes da API, incluí uma **coleção do Postman** com todos os endpoints prontos para uso, organizados por grupos:
+A **Postman collection** is included with all ready-to-use endpoints, organized by group:
 
-📁 Arquivo: [`Node.js Boilerplate API.postman_collection.json`](./Node.js%20Boilerplate%20API.postman_collection.json)
+📁 File: [`Node.js Boilerplate API.postman_collection.json`](./Node.js%20Boilerplate%20API.postman_collection.json)
 
-### ✅ Como usar
+### ✅ How to use
 
-1. Abra o [Postman](https://www.postman.com/)
-2. Clique em **Import**
-3. Selecione o arquivo `Node.js Boilerplate API.postman_collection.json` presente na raiz do projeto
-4. Crie um novo **Environment** com as seguintes variáveis:
+1. Open [Postman](https://www.postman.com/)
+2. Click on **Import**
+3. Select the `Node.js Boilerplate API.postman_collection.json` file in the project root
+4. Create a new **Environment** with the following variables:
 
-| Variável | Valor                              |
-|----------|------------------------------------|
+| Variable  | Value                              |
+|-----------|------------------------------------|
 | `baseUrl` | `http://localhost:3000/api/v1`     |
-| `token`   | *(cole aqui o token JWT do login)* |
+| `token`   | *(paste your JWT token here)*      |
 
-5. Após fazer login, copie o token JWT retornado e atualize o valor da variável `token` no ambiente.
+5. After logging in, copy the returned JWT token and update the `token` variable.
 
-### 📌 Estrutura da coleção
+### 📌 Collection Structure
 
 - **Auth**
-  - `POST /auth/register` – Registro de usuário
-  - `POST /auth/login` – Login com retorno de JWT
+  - `POST /auth/register` – User registration
+  - `POST /auth/login` – Login (returns JWT)
 
-- **Users** (Requer JWT)
-  - `GET /users` – Lista todos os usuários
-  - `GET /users/:id` – Busca usuário por ID
-  - `POST /users` – Cria novo usuário (admin)
-  - `PUT /users/:id` – Atualiza usuário
-  - `DELETE /users/:id` – Soft delete (admin)
+- **Users** (Requires JWT)
+  - `GET /users` – Get all users
+  - `GET /users/:id` – Get user by ID
+  - `POST /users` – Create new user (admin only)
+  - `PUT /users/:id` – Update user
+  - `DELETE /users/:id` – Soft delete (admin only)
 
-## 📁 Estrutura de Pastas
+## 📁 Folder Structure
 
 ```bash
 src/
-├── auth/                 # Auth e Passport JWT
-├── config/               # Configurações (DB, JWT, Redis, Swagger)
-├── controllers/          # Lógica dos endpoints
-├── middlewares/          # Middlewares (auth, RBAC, validação)
+├── auth/                 # Auth and Passport JWT
+├── config/               # Config files (DB, JWT, Redis, Swagger)
+├── controllers/          # Endpoint logic
+├── middlewares/          # Middleware (auth, RBAC, validation)
 ├── models/               # Sequelize models
-├── routes/               # Rotas organizadas
-├── services/             # Regras de negócio
-├── utils/                # Helpers utilitários
-├── validations/          # Schemas Joi
-├── app.js                # Inicialização do Express
+├── routes/               # Organized routes
+├── services/             # Business logic
+├── utils/                # Utility helpers
+├── validations/          # Joi Schemas
+├── app.js                # Express initialization
 server.js                 # Entry point
 ```
 
-## 👥 Autor
+## 👥 Author
 
-Desenvolvido com ❤️ por Hudson Miranda
+Developed with ❤️ by Hudson Miranda
