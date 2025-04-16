@@ -17,14 +17,27 @@ Este projeto é um boilerplate backend moderno e escalável utilizando Node.js, 
 - 📁 Estrutura modular pronta para escalar
 - 🔄 API versionada: `/api/v1`
 
-## 🚀 Como rodar o projeto
+## 🚀 Como iniciar o projeto
 
 ### Pré-requisitos
 
 - [Node.js v18+](https://nodejs.org/)
 - [Docker + Docker Compose](https://docs.docker.com/get-docker/)
 
-## ⚙️ .env
+### Inicializando o projeto
+
+1. Clone este repositório e altere o `nome-do-seu-projeto`:
+```bash
+git clone https://github.com/hudson-miranda/nodejs-backend-boilerplate.git nome-do-seu-projeto
+```
+2. Navegue até o repositório criado:
+```bash
+cd nome-do-seu-projeto
+```
+
+3. Configure o `.env`e/ou `docker-compose.yml` conforme orientado abaixo.
+
+### ⚙️ .env
 
 Copie o `.env.example` para `.env` ou crie um novo arquivo com as configurações abaixo:
 
@@ -47,7 +60,7 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 ```
 
-## 🐋 docker-compose.yml
+### 🐋 docker-compose.yml
 
 Crie um novo arquivo `docker-compose.yml` com as configurações abaixo:
 
