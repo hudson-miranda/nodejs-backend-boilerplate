@@ -61,11 +61,11 @@ Swagger Docs: http://localhost:3000/api-docs
 npm test
 ```
 
-### 📑 Documentação da API
+## 📑 Documentação da API
 
 Disponível em: http://localhost:3000/api-docs
 
-### 📌 Endpoints Disponíveis
+## 📌 Endpoints Disponíveis
 
 > Todas as rotas estão versionadas sob o prefixo `/api/v1/`  
 > Rotas protegidas exigem um token JWT no header:  
@@ -87,8 +87,6 @@ Disponível em: http://localhost:3000/api-docs
 | POST   | `/users`               | Cria um novo usuário                      | ✅        | `admin`        |
 | PUT    | `/users/:id`           | Atualiza um usuário                       | ✅        | qualquer       |
 | DELETE | `/users/:id`           | Realiza soft delete do usuário            | ✅        | `admin`        |
-
----
 
 📢 *Todas as rotas protegidas devem conter o token no header:*  
 ```http
@@ -115,23 +113,6 @@ Authorization: Bearer <token>
   "password": "123456",
   "role": "admin"
 }
-```
-
-### 📁 Estrutura de Pastas
-
-```bash
-src/
-├── auth/                 # Auth e Passport JWT
-├── config/               # Configurações (DB, JWT, Redis, Swagger)
-├── controllers/          # Lógica dos endpoints
-├── middlewares/          # Middlewares (auth, RBAC, validação)
-├── models/               # Sequelize models
-├── routes/               # Rotas organizadas
-├── services/             # Regras de negócio
-├── utils/                # Helpers utilitários
-├── validations/          # Schemas Joi
-├── app.js                # Inicialização do Express
-server.js                 # Entry point
 ```
 
 ## 📬 Coleção Postman
@@ -167,7 +148,24 @@ Para facilitar os testes da API, incluí uma **coleção do Postman** com todos 
   - `PUT /users/:id` – Atualiza usuário
   - `DELETE /users/:id` – Soft delete (admin)
 
-### ⚙️ .env
+## 📁 Estrutura de Pastas
+
+```bash
+src/
+├── auth/                 # Auth e Passport JWT
+├── config/               # Configurações (DB, JWT, Redis, Swagger)
+├── controllers/          # Lógica dos endpoints
+├── middlewares/          # Middlewares (auth, RBAC, validação)
+├── models/               # Sequelize models
+├── routes/               # Rotas organizadas
+├── services/             # Regras de negócio
+├── utils/                # Helpers utilitários
+├── validations/          # Schemas Joi
+├── app.js                # Inicialização do Express
+server.js                 # Entry point
+```
+
+## ⚙️ .env
 
 ```bash
 PORT=3000
@@ -188,7 +186,7 @@ REDIS_HOST=localhost
 REDIS_PORT=6379
 ```
 
-### 🐋 docker-compose.yml
+## 🐋 docker-compose.yml
 
 ```bash
 version: '3.8'
@@ -235,6 +233,6 @@ volumes:
   postgres_data:
 ```
 
-### 👥 Autor
+## 👥 Autor
 
 Desenvolvido com ❤️ por Hudson Miranda
