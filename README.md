@@ -65,6 +65,58 @@ npm test
 
 Disponível em: http://localhost:3000/api-docs
 
+### 📌 Endpoints Disponíveis
+
+> Todas as rotas estão versionadas sob o prefixo `/api/v1/`  
+> Rotas protegidas exigem um token JWT no header:  
+> `Authorization: Bearer <seu_token_aqui>`
+
+#### 🔐 Auth
+
+| Método | Rota                  | Descrição                          | Protegida |
+|--------|------------------------|------------------------------------|-----------|
+| POST   | `/auth/login`         | Autentica usuário e retorna JWT    | ❌        |
+| POST   | `/auth/register`      | Registra novo usuário              | ❌        |
+
+#### 👤 Usuários
+
+| Método | Rota                    | Descrição                                | Protegida | Role Requerida |
+|--------|-------------------------|------------------------------------------|-----------|----------------|
+| GET    | `/users`               | Lista todos os usuários                   | ✅        | qualquer       |
+| GET    | `/users/:id`           | Retorna um usuário pelo ID                | ✅        | qualquer       |
+| POST   | `/users`               | Cria um novo usuário                      | ✅        | `admin`        |
+| PUT    | `/users/:id`           | Atualiza um usuário                       | ✅        | qualquer       |
+| DELETE | `/users/:id`           | Realiza soft delete do usuário            | ✅        | `admin`        |
+
+---
+
+📢 *Todas as rotas protegidas devem conter o token no header:*  
+```http
+Authorization: Bearer <token>
+```
+
+### 📌 Exemplos de requisição
+
+🔑 *Login*
+`POST /api/v1/auth/login`
+```json
+{
+  "email": "admin@email.com",
+  "password": "123456"
+}
+```
+
+📝 *Registro*
+`POST /api/v1/auth/register`
+```json
+{
+  "name": "admin",
+  "email": "admin@email.com",
+  "password": "123456",
+  "role": "admin"
+}
+```
+
 ### 📁 Estrutura de Pastas
 
 ```bash
