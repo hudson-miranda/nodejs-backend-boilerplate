@@ -82,6 +82,74 @@ src/
 server.js                 # Entry point
 ```
 
+### ⚙️ .env
+
+```bash
+PORT=3000
+
+# PostgreSQL
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=boilerplate_db
+DB_USER=postgres
+DB_PASSWORD=postgres
+
+# JWT
+JWT_SECRET=your_jwt_secret
+JWT_EXPIRES_IN=1d
+
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+```
+
+### 🐋 docker-compose.yml
+
+```bash
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    environment:
+      - DB_HOST=localhost
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_NAME=boilerplate_db
+      - DB_PORT=5432
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - JWT_SECRET=your_jwt_secret
+      - JWT_EXPIRES_IN=1d
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/app
+    command: npm run dev
+
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: boilerplate_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:6
+    ports:
+      - '6379:6379'
+
+volumes:
+  postgres_data:
+```
+
 ### 👥 Autor
 
 Desenvolvido com ❤️ por Hudson Miranda
