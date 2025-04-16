@@ -8,7 +8,7 @@ const { userSchema, loginSchema } = require('../validations/user.validation');
 
 /**
  * @swagger
- * /api/users:
+ * /api/v1/users:
  *   get:
  *     summary: Lista todos os usuários
  *     tags: [Users]
@@ -26,7 +26,7 @@ router.get(
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/v1/users/{id}:
  *   get:
  *     summary: Busca um usuário pelo ID
  *     tags: [Users]
@@ -53,7 +53,7 @@ router.get(
 
 /**
  * @swagger
- * /api/users:
+ * /api/v1/users:
  *   post:
  *     summary: Cria um novo usuário
  *     tags: [Users]
@@ -95,7 +95,7 @@ router.post(
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/v1/users/{id}:
  *   put:
  *     summary: Atualiza um usuário existente
  *     tags: [Users]
@@ -135,7 +135,7 @@ router.put(
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/v1/users/{id}:
  *   delete:
  *     summary: Deleta (soft delete) um usuário
  *     tags: [Users]

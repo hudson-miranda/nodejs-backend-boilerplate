@@ -6,7 +6,7 @@ require('./auth/passport')(passport);
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./config/swagger');
 const userRoutes = require('./routes/user.routes');
-const authRoutes = require('./auth/auth.routes');
+const authRoutes = require('./routes/auth.routes');
 const morgan = require('morgan');
 const logger = require('./config/logger');
 

@@ -1,65 +1,25 @@
-const express = require('express');
-const router = express.Router();
-const controller = require('../controllers/auth.controller');
+const User = require('../models/user.model');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
-/**
- * @swagger
- * /api/auth/login:
- *   post:
- *     summary: Autentica um usuário e retorna um token JWT
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - email
- *               - password
- *             properties:
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *     responses:
- *       200:
- *         description: Login realizado com sucesso
- *       401:
- *         description: Credenciais inválidas
- */
-router.post('/login', controller.login);
+const login = async (email, password) => {
+  const user = await User.findOne({ where: { email, isDeleted: false } });
+  if (!user) return null;
 
-/**
- * @swagger
- * /api/auth/register:
- *   post:
- *     summary: Registra um novo usuário
- *     tags: [Auth]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - name
- *               - email
- *               - password
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *               password:
- *                 type: string
- *               role:
- *                 type: string
- *                 enum: [admin, user]
- *     responses:
- *       201:
- *         description: Usuário registrado com sucesso
- */
-router.post('/register', controller.register);
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) return null;
 
-module.exports = router;
+  const token = jwt.sign(
+    { id: user.id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: process.env.JWT_EXPIRES_IN }
+  );
+
+  return { token, user };
+};
+
+const register = async (userData) => {
+  return User.create(userData);
+};
+
+module.exports = { login, register };

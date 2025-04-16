@@ -1,6 +1,6 @@
 require('dotenv').config();
-const { sequelize } = require('./src/config/database');
-const User = require('./src/models/user.model');
+const { sequelize } = require('../config/database');
+const User = require('../models/user.model'); 
 
 const runSeed = async () => {
   await sequelize.sync({ alter: true });
