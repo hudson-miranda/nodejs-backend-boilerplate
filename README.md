@@ -128,10 +128,10 @@ Para facilitar os testes da API, incluí uma **coleção do Postman** com todos 
 3. Selecione o arquivo `Node.js Boilerplate API.postman_collection.json` presente na raiz do projeto
 4. Crie um novo **Environment** com as seguintes variáveis:
 
-  | Variável | Valor                              |
-  |----------|------------------------------------|
-  | `baseUrl` | `http://localhost:3000/api/v1`     |
-  | `token`   | *(cole aqui o token JWT do login)* |
+| Variável | Valor                              |
+|----------|------------------------------------|
+| `baseUrl` | `http://localhost:3000/api/v1`     |
+| `token`   | *(cole aqui o token JWT do login)* |
 
 5. Após fazer login, copie o token JWT retornado e atualize o valor da variável `token` no ambiente.
 
