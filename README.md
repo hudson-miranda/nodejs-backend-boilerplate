@@ -134,6 +134,39 @@ src/
 server.js                 # Entry point
 ```
 
+## 📬 Coleção Postman
+
+Para facilitar os testes da API, incluí uma **coleção do Postman** com todos os endpoints prontos para uso, organizados por grupos:
+
+📁 Arquivo: [`Node.js Boilerplate API.postman_collection.json`](./Node.js%20Boilerplate%20API.postman_collection.json)
+
+### ✅ Como usar
+
+1. Abra o [Postman](https://www.postman.com/)
+2. Clique em **Import**
+3. Selecione o arquivo `Node.js Boilerplate API.postman_collection.json` presente na raiz do projeto
+4. Crie um novo **Environment** com as seguintes variáveis:
+
+| Variável | Valor                              |
+|----------|------------------------------------|
+| `baseUrl` | `http://localhost:3000/api/v1`     |
+| `token`   | *(cole aqui o token JWT do login)* |
+
+5. Após fazer login, copie o token JWT retornado e atualize o valor da variável `token` no ambiente.
+
+### 📌 Estrutura da coleção
+
+- **Auth**
+  - `POST /auth/register` – Registro de usuário
+  - `POST /auth/login` – Login com retorno de JWT
+
+- **Users** (Requer JWT)
+  - `GET /users` – Lista todos os usuários
+  - `GET /users/:id` – Busca usuário por ID
+  - `POST /users` – Cria novo usuário (admin)
+  - `PUT /users/:id` – Atualiza usuário
+  - `DELETE /users/:id` – Soft delete (admin)
+
 ### ⚙️ .env
 
 ```bash
