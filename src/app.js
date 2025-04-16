@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-require('./auth/passport')(passport);
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./config/swagger');
 const userRoutes = require('./routes/user.routes');
@@ -12,21 +11,23 @@ const logger = require('./config/logger');
 
 const app = express();
 
-//Logging
-app.use(morgan('combined', {
-    stream: {
-      write: message => logger.info(message.trim())
-    }
-  }));
-
-//Auth
-app.use('/api/v1/auth', authRoutes);
-
-// Middlewares
+// Body parsers
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Logging HTTP requests
+app.use(morgan('combined', {
+  stream: {
+    write: message => logger.info(message.trim())
+  }
+}));
+
+// Auth e Passport
 app.use(passport.initialize());
+require('./auth/passport')(passport);
 
 // Rotas
+app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/users', userRoutes);
 
 // Swagger docs
@@ -35,5 +36,4 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Rota raiz
 app.get('/', (req, res) => res.send('🚀 Boilerplate Node.js API rodando!'));
 
-// Exporta app para uso externo
 module.exports = app;
